@@ -25,7 +25,16 @@
     state: latest
   with_items:
     - docker-ce
-    - python-docker-py
 
 - name: making sure pip installed
   shell: curl -sSL https://bootstrap.pypa.io/get-pip.py | python
+  
+- name: install docker-py via pip
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - docker
+    - docker-py
+  
+  
