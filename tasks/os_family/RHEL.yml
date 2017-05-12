@@ -32,6 +32,11 @@
   with_items:
     - docker-ee
 
+- name: remove docker-python
+  yum:
+    name: docker-python
+    state: absent 
+
 - name: making sure pip installed
   shell: curl -sSL https://bootstrap.pypa.io/get-pip.py | python
 
